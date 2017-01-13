@@ -40,8 +40,8 @@ For more information please refer to the [ESPurna Wiki](https://bitbucket.org/xo
 
 ## Supported hardware
 
-|||
----|---|---
+||||
+---|---|---|---
 ![IteadStudio S20](images/devices/s20.jpg) **IteadStudio S20**|![IteadStudio Slampher](images/devices/slampher.jpg) **IteadStudio Slampher**|![IteadStudio Sonoff 4CH](images/devices/sonoff-4ch.jpg) **IteadStudio Sonoff 4CH**
 ![IteadStudio Sonoff Basic](images/devices/sonoff-basic.jpg) **IteadStudio Sonoff Basic**|![IteadStudio Motor Switch](images/devices/motor-switch.jpg) **IteadStudio Motor Switch**|![IteadStudio 1CH Inching](images/devices/1ch-inching.jpg) **IteadStudio 1CH Inching**
 ![IteadStudio Sonoff Dual](images/devices/sonoff-dual.jpg) **IteadStudio Sonoff Dual**|![IteadStudio Sonoff POW](images/devices/sonoff-pow.jpg) **IteadStudio Sonoff POW**|![IteadStudio Sonoff TH10/TH16](images/devices/sonoff-th10-th16.jpg) **IteadStudio Sonoff TH10/TH16**
