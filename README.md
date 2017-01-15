@@ -31,7 +31,7 @@ It uses the Arduino Core for ESP8266 framework and a number of 3rd party librari
     * Manually from PlatformIO or Arduino Inside
     * Automatic updates through the [NoFUSS Library](https://bitbucket.org/xoseperez/nofuss)
 * **Alexa** integration using the [FauxmoESP Library](https://bitbucket.org/xoseperez/fauxmoesp)
-* [**Domoticz**](https://domoticz.com/) integration via MQTT
+* [**Domoticz**](https://domoticz.com/) and [**Home Assistant**](https://home-assistant.io/) integration via MQTT
 
 ## Documentation
 
