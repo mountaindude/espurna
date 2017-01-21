@@ -17,21 +17,23 @@ It uses the Arduino Core for ESP8266 framework and a number of 3rd party librari
 * Support for different **sensors**
     * DHT11 / DHT22 / DHT21 / AM2301
     * DS18B20
-    * HLW8012 (Sonoff POW)
+    * HLW8012 using the [HLW8012 Library](https://bitbucket.org/xoseperez/hlw8012) (Sonoff POW)
     * Non-invasive current sensor using the [EmonLiteESP Library](https://bitbucket.org/xoseperez/emonliteesp) (requires some hacking)
 * Fast asynchronous **HTTP Server**
     * Basic authentication
     * Web-based configuration
     * Relay switching from the web
     * Websockets-based communication between the device and the browser
-* **REST API**
-    * GET and PUT relay status
-* **Command line configuration**
 * **Over-The-Air** (OTA) updates even for 1Mb boards
     * Manually from PlatformIO or Arduino Inside
     * Automatic updates through the [NoFUSS Library](https://bitbucket.org/xoseperez/nofuss)
+* **REST API**
+    * GET and PUT relay status
+    * GET sensor data (power, current, voltage, temperature and humidity) depending on the available hardware
 * **Alexa** integration using the [FauxmoESP Library](https://bitbucket.org/xoseperez/fauxmoesp)
-* [**Domoticz**](https://domoticz.com/) and [**Home Assistant**](https://home-assistant.io/) integration via MQTT
+* [**Domoticz**](https://domoticz.com/) integration via MQTT
+* [**Home Assistant**](https://home-assistant.io/) integration via MQTT
+* **Command line configuration**
 
 ## Documentation
 
@@ -47,6 +49,7 @@ For more information please refer to the [ESPurna Wiki](https://bitbucket.org/xo
 ![IteadStudio Sonoff Dual](images/devices/sonoff-dual.jpg) **IteadStudio Sonoff Dual**|![IteadStudio Sonoff POW](images/devices/sonoff-pow.jpg) **IteadStudio Sonoff POW**|![IteadStudio Sonoff TH10/TH16](images/devices/sonoff-th10-th16.jpg) **IteadStudio Sonoff TH10/TH16**
 ![IteadStudio Sonoff RF](images/devices/sonoff-rf.jpg) **IteadStudio Sonoff RF**|![IteadStudio Sonoff SV](images/devices/sonoff-sv.jpg) **IteadStudio Sonoff SV**|![IteadStudio Sonoff Touch](images/devices/sonoff-touch.jpg) **IteadStudio Sonoff Touch**
 ![Wemos D1 Mini Relay Shield](images/devices/d1mini.jpg) **Wemos D1 Mini Relay Shield**|![Electrodragon Relay Board](images/devices/electrodragon-relay-board.jpg) **Electrodragon Relay Board**|![WorkChoice EcoPlug](images/devices/workchoice-ecoplug.jpg) **WorkChoice EcoPlug**
+![JanGoe Wifi Relay (NO/NC)](images/devices/jangoe-wifi-relay.png) **JanGoe Wifi Relay (NO/NC)**||
 
 
 ## License
