@@ -7,6 +7,8 @@ ESPurna ("spark" in Catalan) is a custom firmware for ESP8266 based smart switch
 It was originally developed with the **[IteadStudio Sonoff](https://www.itead.cc/sonoff-wifi-wireless-switch.html)** in mind but now it supports a growing number of ESP8266-based boards.
 It uses the Arduino Core for ESP8266 framework and a number of 3rd party libraries.
 
+**Current Release Version is 1.6.5**, read the [changelog](https://bitbucket.org/xoseperez/espurna/src/master/CHANGELOG.md).
+
 ## Features
 
 * Support for **multiple ESP8266-based boards** ([check list](https://bitbucket.org/xoseperez/espurna/wiki/Hardware))
@@ -40,6 +42,7 @@ It uses the Arduino Core for ESP8266 framework and a number of 3rd party librari
     * Web-based configuration
     * Relay switching and sensor data from the web interface
     * Websockets-based communication between the device and the browser
+    * Backup and restore settings option
 * **REST API** (enable/disable from web interface)
     * GET and PUT relay status
     * GET sensor data (power, current, voltage, temperature and humidity) depending on the available hardware
