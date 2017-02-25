@@ -67,7 +67,7 @@ For more information please refer to the [ESPurna Wiki](https://bitbucket.org/xo
 Here is the list of supported hardware. For more information please refer to the [ESPurna Wiki Hardware page](https://bitbucket.org/xoseperez/espurna/wiki/Hardware).
 
 ||||
-|-|-|-|
+|---|---|---|
 |![IteadStudio S20](images/devices/s20.jpg)|![WorkChoice EcoPlug](images/devices/workchoice-ecoplug.jpg)|![IteadStudio Sonoff Touch](images/devices/sonoff-touch.jpg)|
 |**IteadStudio S20**|**WorkChoice EcoPlug**|**IteadStudio Sonoff Touch**|
 |![IteadStudio Slampher](images/devices/slampher.jpg)|![AI-Thinker Wifi Light](images/devices/aithinker-ailight.jpg)||
