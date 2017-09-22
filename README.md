@@ -7,7 +7,11 @@ ESPurna ("spark" in Catalan) is a custom firmware for ESP8266 based smart switch
 It was originally developed with the **[IteadStudio Sonoff](https://www.itead.cc/sonoff-wifi-wireless-switch.html)** in mind but now it supports a growing number of ESP8266-based boards.
 It uses the Arduino Core for ESP8266 framework and a number of 3rd party libraries.
 
-**Current Release Version is 1.9.0**, read the [changelog](https://bitbucket.org/xoseperez/espurna/src/master/CHANGELOG.md).
+> **Current Release Version is 1.9.4**, read the [changelog](https://bitbucket.org/xoseperez/espurna/src/master/CHANGELOG.md).
+
+> **NOTICE**: Default flash layout changed in 1.8.3, as an unpredicted consequence devices will not be able to persist/retrieve configuration if flashed with 1.8.3 via **OTA** from **PlatformIO**. Please check issue #187.
+
+> **NOTICE**: since version 1.9.0 the default **MQTT topics for commands have changed**. They all now end with "/set". This means you will have to change your controller software (Node-RED or alike) to send messages to -for instance- "/home/living/light/relay/0/set". The device will publish its state in "/home/living/light/relay/0" like before.
 
 ## Features
 
@@ -24,39 +28,54 @@ It uses the Arduino Core for ESP8266 framework and a number of 3rd party librari
     * Support for **relay synchronization** (all equal, only one ON, one and only on ON)
     * Support for **delayed ON/OFF**
 * **MQTT** enabled
-    * SSL/TLS support (not on regular builds, requires staging version of Arduino Core for ESP8266)
+    * **SSL/TLS support** (not on regular builds, see #64)
     * Switch on/off and toggle relays
     * Report button event notifications
     * Enable/disable pulse mode
     * Change LED notification mode
     * Remote reset the board
 * **Alexa** integration using the [FauxmoESP Library](https://bitbucket.org/xoseperez/fauxmoesp)
+* [**Google Assistant**](http://tinkerman.cat/using-google-assistant-control-your-esp8266-devices/) integration using IFTTT and Webhooks (Google Home, Allo)
 * [**Domoticz**](https://domoticz.com/) integration via MQTT
 * [**Home Assistant**](https://home-assistant.io/) integration via MQTT
+    * Supports MQTT auto-discover feature
 * [**InfluxDB**](https://www.influxdata.com/) integration via HTTP API
 * Support for different **sensors**
     * DHT11 / DHT22 / DHT21 / AM2301 (supports celsius & fahrenheit reporting)
     * DS18B20 (supports celsius & fahrenheit reporting)
     * HLW8012 using the [HLW8012 Library](https://bitbucket.org/xoseperez/hlw8012) (Sonoff POW)
     * Non-invasive current sensor using the [EmonLiteESP Library](https://bitbucket.org/xoseperez/emonliteesp) (requires some hacking)
+    * Raw analog sensor
 * Fast asynchronous **HTTP Server**
     * Configurable port
     * Basic authentication
     * Web-based configuration
     * Relay switching and sensor data from the web interface
+    * Handle color, brightness, and white/warm channels for lights
     * Websockets-based communication between the device and the browser
     * Backup and restore settings option
     * Upgrade firmware from the web interface
+    * Works great behind a [secured reverse proxy](http://tinkerman.cat/secure-remote-access-to-your-iot-devices/)
 * **REST API** (enable/disable from web interface)
     * GET and PUT relay status
     * Change light color (for supported hardware)
     * GET sensor data (power, current, voltage, temperature and humidity) depending on the available hardware
+    * Works great behind a secured reverse proxy
 * **RPC API** (enable/disable from web interface)
     * Remote reset the board
 * **Over-The-Air** (OTA) updates even for 1Mb boards
     * Manually from PlatformIO or Arduino IDE
     * Automatic updates through the [NoFUSS Library](https://bitbucket.org/xoseperez/nofuss)
+    * Update from web interface using pre-built images
 * **Command line configuration**
+    * Change configuration
+    * Run special commands
+* **Telnet support**
+    * Available only if connected to the AP interface
+    * Show debug info and allows to run terminal commands
+* **Unstable system check**
+    * Detects unstable system (crashes on boot continuously) and defaults to a stable system
+    * Only WiFi AP, OTA and Telnet available if system is flagged as unstable
 * Button interface
     * Click to toggle relays
     * Double click to enter AP mode (only main button)
@@ -81,8 +100,8 @@ Here is the list of supported hardware. For more information please refer to the
 |**IteadStudio Sonoff Dual**|**IteadStudio Sonoff POW**|**IteadStudio Sonoff TH10/TH16**|
 |![IteadStudio Sonoff 4CH](images/devices/itead-sonoff-4ch.jpg)|![IteadStudio Sonoff 4CH Pro](images/devices/itead-sonoff-4ch-pro.jpg)|![OpenEnergyMonitor WiFi MQTT Relay / Thermostat](images/devices/openenergymonitor-mqtt-relay.jpg)|
 |**IteadStudio Sonoff 4CH**|**IteadStudio Sonoff 4CH Pro**|**OpenEnergyMonitor WiFi MQTT Relay / Thermostat**|
-|![IteadStudio S20](images/devices/itead-s20.jpg)|![WorkChoice EcoPlug](images/devices/workchoice-ecoplug.jpg)||
-|**IteadStudio S20**|**WorkChoice EcoPlug**||
+|![IteadStudio S20](images/devices/itead-s20.jpg)|![WorkChoice EcoPlug](images/devices/workchoice-ecoplug.jpg)|![Power meters based on V9261F and ECH1560](images/devices/generic-v9261f.jpg)|
+|**IteadStudio S20**|**WorkChoice EcoPlug**|**Power meters based on V9261F and ECH1560**|
 |![IteadStudio Sonoff Touch](images/devices/itead-sonoff-touch.jpg)|![IteadStudio Sonoff T1](images/devices/itead-sonoff-t1.jpg)||
 |**IteadStudio Sonoff Touch**|**IteadStudio Sonoff T1**||
 |![IteadStudio Slampher](images/devices/itead-slampher.jpg)|![AI-Thinker Wifi Light / Noduino OpenLight](images/devices/aithinker-ai-light.jpg)|![Itead Sonoff B1](images/devices/itead-sonoff-b1.jpg)|
