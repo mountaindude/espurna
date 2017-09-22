@@ -1,11 +1,10 @@
 # ESPurna Firmware
 
-> The official ESPurna repository is hosted on Bitbucket.
-> Head over to **[https://bitbucket.org/xoseperez/espurna](https://bitbucket.org/xoseperez/espurna).**
-
 ESPurna ("spark" in Catalan) is a custom firmware for ESP8266 based smart switches.
 It was originally developed with the **[IteadStudio Sonoff](https://www.itead.cc/sonoff-wifi-wireless-switch.html)** in mind but now it supports a growing number of ESP8266-based boards.
 It uses the Arduino Core for ESP8266 framework and a number of 3rd party libraries.
+
+> The official ESPurna repository is hosted on Bitbucket. Head over to **[https://bitbucket.org/xoseperez/espurna](https://bitbucket.org/xoseperez/espurna).**
 
 > **Current Release Version is 1.9.4**, read the [changelog](https://bitbucket.org/xoseperez/espurna/src/master/CHANGELOG.md).
 
