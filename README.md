@@ -4,27 +4,26 @@ ESPurna ("spark" in Catalan) is a custom firmware for ESP8266 based smart switch
 It was originally developed with the **[IteadStudio Sonoff](https://www.itead.cc/sonoff-wifi-wireless-switch.html)** in mind but now it supports a growing number of ESP8266-based boards.
 It uses the Arduino Core for ESP8266 framework and a number of 3rd party libraries.
 
-> The official ESPurna repository is hosted on Bitbucket. Head over to **[https://bitbucket.org/xoseperez/espurna](https://bitbucket.org/xoseperez/espurna).**
+**Current Release Version is 1.12.1**
 
-> **Current Release Version is 1.11.4**, read the [changelog](https://bitbucket.org/xoseperez/espurna/src/master/CHANGELOG.md).
+Read the [changes log](https://bitbucket.org/xoseperez/espurna/src/master/CHANGELOG.md).
 
-> **NOTICE**: Default flash layout changed in 1.8.3, as an unpredicted consequence devices will not be able to persist/retrieve configuration if flashed with 1.8.3 via **OTA** from **PlatformIO**. Please check issue #187.
-
-> **NOTICE**: since version 1.9.0 the default **MQTT topics for commands have changed**. They all now end with "/set". This means you will have to change your controller software (Node-RED or alike) to send messages to -for instance- "/home/living/light/relay/0/set". The device will publish its state in "/home/living/light/relay/0" like before.
+---
 
 ## Features
 
-* *KRACK* vulnerability free (when built against Arduino Core 2.4.0 RC2)
+* *KRACK* vulnerability free (when built against Arduino Core 2.4.0)
 * Support for **multiple ESP8266-based boards** ([check list](https://bitbucket.org/xoseperez/espurna/wiki/Hardware))
 * Power saving options
 * Wifi **AP Mode** or **STA mode**
     * Up to 5 different networks can be defined
     * Supports static IP
-    * Scans for strongest network if more than one defined
+    * Scans for strongest network if more than one defined (also available in web UI)
+    * Handles correctly multiple AP with the same SSID
     * Defaults to AP mode (also available after double clicking the main button)
 * Network visibility
-    * Supports mDNS (service reporting and metadata)
-    * Supports NetBIOS, LLMNR and Netbios (when built against Arduino Core 2.4.0 RC2) and SSDP (experimental)
+    * Supports mDNS (service reporting and metadata) both server mode and client mode (.local name resolution)
+    * Supports NetBIOS, LLMNR and Netbios (when built against Arduino Core 2.4.0) and SSDP (experimental)
 * Switch management
     * Support for **push buttons** and **toggle switches**
     * Configurable **status on boot** per switch (always ON, always OFF, same as before or toggle)
@@ -40,6 +39,7 @@ It uses the Arduino Core for ESP8266 framework and a number of 3rd party librari
     * Change LED notification mode
     * Remote reset the board
     * Fully configurable in webUI (broker, user, password, QoS, keep alive time, retain flag, client ID)
+* **Scheduler** to automatically turn on, off or toggle any relay at a given time and day
 * **Alexa** integration using the [FauxmoESP Library](https://bitbucket.org/xoseperez/fauxmoesp)
 * [**Google Assistant**](http://tinkerman.cat/using-google-assistant-control-your-esp8266-devices/) integration using IFTTT and Webhooks (Google Home, Allo)
 * [**Domoticz**](https://domoticz.com/) integration via MQTT
@@ -111,6 +111,19 @@ It uses the Arduino Core for ESP8266 framework and a number of 3rd party librari
     * Long click (>1 second) to reboot device (only main button)
     * Extra long click (>10 seconds) to go back to factory settings (only main button)
     * Specific definitions for touch button devices (ESPurna Switch, Sonoff Touch & T1)
+
+## Notices
+
+---
+> **2018-01-11**: As of current version (1.12.0) ESPurna is tested using Arduino Core 2.3.0 and it's meant to be built against that version.
+
+---
+> **2017-08-26**: since version 1.9.0 the default **MQTT topics for commands have changed**. They all now end with "/set". This means you will have to change your controller software (Node-RED or alike) to send messages to -for instance- "/home/living/light/relay/0/set". The device will publish its state in "/home/living/light/relay/0" like before.
+
+---
+> **2017-07-24**: Default flash layout changed in 1.8.3, as an unpredicted consequence devices will not be able to persist/retrieve configuration if flashed with 1.8.3 via **OTA** from **PlatformIO**. Please check issue #187.
+
+---
 
 ## Contribute
 
